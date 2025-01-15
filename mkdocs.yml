@@ -1,0 +1,4 @@
+site_name: AsterTrack Documentation
+site_url: https://docs.astertrack.dev
+theme:
+  name: material
