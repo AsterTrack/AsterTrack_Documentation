@@ -1,4 +1,4 @@
-# Mounting
+# Mounting Hardware
 
 Cameras can be mounted using any mounting hardware compatible with 1/4" threads common for mounting small cameras. </b>
 Here are several tested ways to mount the hardware, with Pros/Cons.

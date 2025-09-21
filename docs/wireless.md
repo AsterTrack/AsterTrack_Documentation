@@ -18,3 +18,12 @@ Using dev images, you have all capacities to start developing:
 - `build_release.sh` / `build_debug.sh` to compile the program
 - active sftp service to transfer new sources and extract compiled builds
 - debugging with `sudo gdb --args TrackingCamera/TrackingCamera_armv7l -u`
+
+## Wireless Camera Operation
+
+While the AsterTrack Cameras currently need a wired connection, it is theoretically possible to operate them wirelessly in the future. <br>
+This requires solving two problems:
+- Very Low-Latency Wireless Sync
+- Low-Latency Bulk Data Transfer
+
+There are some options being considered but nothing concrete has been planned yet that doesn't involve significant compromises.
