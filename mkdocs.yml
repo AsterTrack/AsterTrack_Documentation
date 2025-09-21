@@ -53,3 +53,20 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
 
+nav:
+  - General:
+    - Overview: index.md
+    - Operation: operating.md
+    - Known Issues: known_issues.md
+    - Building: building.md
+  - Setup:
+    - Room Setup: room_setup.md
+    - Mounting Hardware: mounting.md
+    - Camera Calibration: calib_cameras.md
+  - Tracking:
+    - Trackers: tracking.md
+    - Target Calibration: calib_target.md
+    - IMU Calibration: calib_imu.md
+  - Additional:
+    - Updating: updating.md
+    - Wireless: wireless.md
