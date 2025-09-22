@@ -5,6 +5,7 @@ Here are several tested ways to mount the hardware, with Pros/Cons.
 
 ## Mechanism
 Relevant qualities:
+
 - Flexibility to accommodate to any viewing angle
     - especially switching aspect ratio (rotating by 90° on the roll axis)
 - Wide availability on many stores, and price

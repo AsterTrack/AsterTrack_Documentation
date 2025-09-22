@@ -18,7 +18,8 @@ The algorithm is currently mostly brute-force and non-deterministic, so there is
 ### Target Assembly
 After some Target Views of sufficient quality are done processing, you may press 'Auto-Assembly' to start assembling multiple views into one final target. <br>
 This is done by first picking a base view (which you can override by manually selecting a view and pressing *Pick as Base View*) and then iteratively aligning other views and merging one at a time. <br>
-This merging is itself done in multiple steps: <br>
+This merging is itself done in multiple steps:
+
 1. Partially merging view: Merge markers deemed the same during the aligning step, then adopt all frames of the view that have enough samples from just these shared markers.
 2. Integrate all frames: Adopt remaining frames and reevaluate sequences of those frames against current markers, adding new samples in the process.
 3. Adopt new markers: Adopt remaining markers and their samples.
@@ -31,6 +32,7 @@ It may also add previously unassociated sequences that are now deemed to corresp
 By selecting individual stages, you can visually inspect them usingh both the 3D View and Insights panel. <br>
 Tip: Use the *Orbit View* button in the top left of the 3D View to focus on the target. <br>
 The *Target Calibration* Section in the Visualisation Panel of the 3D View provides additional visualisation options:
+
 - Showing the currently estimated Field of View of each markers
 - Showing the underlying observed samples of each marker
 - Focusing the view on selected markers
@@ -45,6 +47,7 @@ It may then be restarted from where it left off. <br>
 You may also use the two buttons on the right of the stage to discard progress beyond one stage - e.g. when some incorrect step has been performed, like valid markers being removed or two valid markers being merged. <br>
 The editing tools include manually adding individual stages like *Reevaluate Markers* and *Optimisation*, but also ones not used automatically (and not recommended due to being destructive) like *Expand Frames* and *Subsample Data*. <br>
 But the most powerful one is *Manually Edit Target*, which allows you to select markers (in both 3D view and Insights view) and edit them directly:
+
 - Delete marker observations, as previously aquired by the Sequence2D subsystem
 - Move marker observations between two selected markers
 - Merge two selected markers and their marker observations

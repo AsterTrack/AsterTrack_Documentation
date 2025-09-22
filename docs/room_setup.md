@@ -1,6 +1,7 @@
 # Initial Room Setup
 The most important thing to consider is where to put the cameras. <br>
 Several factors may influence this decision:
+
 - The volume you want to be trackable
 - The cable run from the cameras to the controller
 - Potential room features that facilitate mounting
@@ -24,7 +25,8 @@ The custom protocol used sadly prohibits merging multiple cables into one, so yo
 Picking the camera locations carefully can minimise the complicated runs you have to do.
 
 #### Room Features
-Look out for room features that may be used to either facilitate mounting or hide the cable runs: <br>
+Look out for room features that may be used to either facilitate mounting or hide the cable runs:
+
 - Curtain tracks for both mounting (if flat) and guiding the cable runs
 - Baseboards or other moldings to hide the cable runs
 - Very Tall furniture to mount ontop of (though you may loose effective vertical tracking volume if not mounted as high as possible)

@@ -32,6 +32,7 @@ This allows you to load and evaluate the replay even as your calibration changes
 
 #### Extended capture naming scheme
 While there exists no tooling for this currently, the capture and tracking file names may be appended by the following in this order:
+
 - A number, to store a recording in parts that are automatically loaded together
 - A name to be displayed when loading, added to at least one of the files of any given recording index
 

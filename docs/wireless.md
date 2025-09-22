@@ -13,6 +13,7 @@ To set the credentials, use a tool like wpa_passphrase (on linux) or write the w
 If the camera is connected to a wifi network, it will show its IP and the SSID of the network (shown in the tooltip of the IP). <br>
 When trying to connect, you will have to enter "piCore". <br>
 Using dev images, you have all capacities to start developing:
+
 - stop.sh to stop the currently running instances of the program
 - sources of the current build (always updated with firmware updates) 
 - `build_release.sh` / `build_debug.sh` to compile the program
@@ -23,6 +24,7 @@ Using dev images, you have all capacities to start developing:
 
 While the AsterTrack Cameras currently need a wired connection, it is theoretically possible to operate them wirelessly in the future. <br>
 This requires solving two problems:
+
 - Very Low-Latency Wireless Sync
 - Low-Latency Bulk Data Transfer
 

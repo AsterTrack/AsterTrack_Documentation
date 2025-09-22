@@ -96,6 +96,7 @@ There are several ways to debug the tracking pipeline, and many of them are only
 The Insights View provides a quick overview of the frame-by-frame quality of the tracking - though you may need to select the tracker you want to inspect manually.
 The graph shows both the number of tracked markers (matched points) as well as the reprojection error of those - a low reprojection error, doesn't mean much by itself if the marker count is low, especially if only one camera contributes. <br>
 The bottom bar additionally shows the state of the tracker:
+
 - Purple is a failed detection attempt
 - Pink is a successful detection
 - Blue is asynchronous tracking after a detection to catch up with realtime

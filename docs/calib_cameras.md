@@ -10,6 +10,7 @@ However, if you installed custom lenses, you may need to collect more data to su
 
 ### Reason for Calibration
 It is important to consider what your reasons are for (re-)calibrating the camera system:
+
 1. the error has increased over time
 2. you added a new camera, moved one, or even set up in a completely new room
 3. you changed or reinstalled the lens of at least one camera
