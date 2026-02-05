@@ -19,9 +19,9 @@ AsterTrack is in a functional state, but usability varies depending on your exac
 
 ## Building Guides
 
-Many more details can be found in the dedicated [building documentation](building.md). <br>
+Many more details can be found in the dedicated building documentation for [hardware](building/hardware.md) and [software](building/software.md). <br>
 The software is cross-platform (Windows and Linux), though at the current stage has much better support on Linux (both for building and using). <br>
 You need at least 3 AsterTrack Cameras and one AsterTrack Controller for a minimal setup. You can add more cameras and even controllers at any point, with each controller supporting up to 8 cameras. <br>
-You will need mounting hardware for each camera - details of your options can be found in the dedicated [mounting documentation](mounting.md), and tips for room setup in the [room setup documentation](room_setup.md). <br>
+You will need mounting hardware for each camera - details of your options can be found in the dedicated [mounting documentation](setup/mounting_hardware.md), and tips for room setup in the [room setup documentation](setup/camera_setup.md). <br>
 Additionally, you will need a USB PD power source or another power supply that can output between 12V to 24V. 10W should be sufficient for a 3 camera setup, each camera needs about 3W, but please calculate with 5W to be safe. <br>
 Finally, you'll need USB Data and Power cable for each controller, and a CAT 5(e) cable with straight wiring for each camera. These CAT 5 cables are best sourced on your own, they can be found for cheap in a variety of lengths, colors and shapes that you can choose to fit your room. Cheap ones cost about 2€, more expensive ones might cost up to 10€ with smaller, easier to hide wiring (whether round or even flat).

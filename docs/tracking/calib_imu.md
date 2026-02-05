@@ -1,4 +1,5 @@
 # Tracker IMU Calibration
+
 Trackers may optionally have IMUs associated, either raw or fused.
 These may be supplied by a separate driver or external source. <br>
 Current hardware is based closely on SlimeVRs nRF-Slimes, modified to include timesync - this is an example of a fused IMU. <br>

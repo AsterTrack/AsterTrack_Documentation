@@ -1,4 +1,5 @@
-# Target Calibration
+# Tracker Target Calibration
+
 A tracker may use a fixed set of markers, known as a target, as its optical component.
 Determining the marker geometry and - in the case of flat markers - orientation, is required before a target can be tracked. <br>
 The current algorithm is suitable for both targets comprising of both spherical and flat markers, and works by first reconstructing short segments as Target Views, then iteratively merging them to pinpoint all markers precisely.
@@ -57,7 +58,7 @@ By selecting marker observations, you can visually inspect them in the 3D View a
 If you check *Show Marker Observations* in the visualisation panel (see above), hovering over a sequence also highlights it in the 3D view.
 
 ### Recommended: Use Recording & Replay
-I highly recommend you to record the Target View Aquisition by pressing *Start Section* in the Control View, and *Stop Section* after you're done, then saving the section in the table below - see details on [recording & replay](operating.md#recording-replay).
+I highly recommend you to record the Target View Aquisition by pressing *Start Section* in the Control View, and *Stop Section* after you're done, then saving the section in the table below - see details on [recording & replay](../operation/recording.md).
 Then, you can load the capture as a replay and continue with Target Calibration as instructed, ensuring that no Device Mode specific bug crashes and interrupts the processing (which may take hours). <br>
 You can also at any point save the processing of Target Views and Target Assembly: <br>
 **Target Views** are stored in one shared file (*target_calib_views.json*) alongside the underlying observation sequences (*target_calib_observations.json*) and are only designed for one concurrent Target Calibration. <br>

@@ -1,4 +1,3 @@
-# Initial Room Setup
 The most important thing to consider is where to put the cameras. <br>
 Several factors may influence this decision:
 

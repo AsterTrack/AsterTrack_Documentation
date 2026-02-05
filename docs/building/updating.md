@@ -1,4 +1,4 @@
-## Firmware Update
+# Firmware Update
 
 The firmware of the cameras and controllers can be updated from within the AsterTrack Application without any additional hardware.
 

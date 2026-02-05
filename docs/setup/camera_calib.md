@@ -1,4 +1,5 @@
 # Camera Calibration
+
 *internally also referred to as point calibration* <br>
 
 The cameras need to be calibrated to be useful for tracking.
@@ -17,10 +18,10 @@ It is important to consider what your reasons are for (re-)calibrating the camer
 
 
 ### Collecting Samples
-Make sure you've followed the [general procedures for operating the camera system](operating.md). <br>
+Make sure you've followed the general procedures for operating the camera system, especially [background calibration](../operation/background.md). <br>
 Then enter the Camera Calibration Phase in the Pipeline View while streaming and wave a (preferrably small) spherical marker around the room.
 If *Record* is checked, you should see samples being accumulated as observations (using the Sequence2D subsystem).
-Note this is different from recording a raw capture (see [recording & replay](operating.md#recording-replay)). <br>
+Note this is different from recording a raw capture (see [recording & replay](../operation/recording.md)). <br>
 The recommended number of samples required varies with camera count and which reasons apply.
 For reason 3, you need significantly more samples than for only reasons 1 and 2.
 A rough range to aim for is 5000 to 50000 for camera systems of up to 8 cameras.
