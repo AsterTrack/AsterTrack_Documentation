@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="256px"
+   height="179px"
+   viewBox="0 0 40 28"
+   version="1.1"
+   id="astertrack_logo_icon"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   style="fill:none;stroke:#ffffff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;">
+  <path d="M 17.090164,1.527263 1.1981741,26.47269 30.522654,22.612049 Z" />
+  <path d="M 38.801826,26.47269 22.909836,1.527263 9.4773461,22.612049 Z" />
+  <path d="M 20,13.705255 v 4 l 3.625231,1.690473 M 20,17.705255 16.374769,19.395728"/>
+</svg>
