@@ -19,7 +19,7 @@ It is important to consider what your reasons are for (re-)calibrating the camer
 
 ### Collecting Samples
 Make sure you've followed the general procedures for operating the camera system, especially [background calibration](../operation/background.md). <br>
-Then enter the Camera Calibration Phase in the Pipeline View while streaming and wave a (preferrably small) spherical marker around the room.
+Then enter the Camera Calibration Phase in the "Pipeline" panel while streaming and wave a (preferrably small) spherical marker around the room.
 If *Record* is checked, you should see samples being accumulated as observations (using the Sequence2D subsystem).
 Note this is different from recording a raw capture (see [recording & replay](../operation/recording.md)). <br>
 The recommended number of samples required varies with camera count and which reasons apply.

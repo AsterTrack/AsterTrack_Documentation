@@ -1,9 +1,15 @@
 # Background Calibration
 
 After you've connected to the hardware and started streaming using the buttons on the toolbar, it is recommended to calibrate the background to reduce the base load on the cameras and thus improve performance.
-Sometimes, the cameras may even be overloaded just from close objects covering large parts of the field of view, with their close distance making them appear very bright.
-In those cases, background calibration may even be a necessity (see [known issues](issues.md)). <br>
-**Background Calibration** is currently a manual process that involves removing any moveable retroreflective markers and targets (trackers) from the view of the cameras as they may cause parts of the image to be ignored when they don't need to be. <br> 
-You then need to enter background calibration from the context menu of each camera individually, and press the accept button after a few seconds during which all cells with visible blobs are being blocked from processing.
-This process is slated to be made easier very soon. <br>
-Relevant sources of background noise to be blocked may include the IR LED ring of other cameras, extraneous retroreflective material or clothing laying around, and sometimes even windows if the sun is very bright (closing the shutters or curtains should mitigate this).
+The cameras processing may even be overloaded just from close objects covering large parts of the field of view, with their close distance making them appear very bright. <br>
+
+**Background Calibration** is currently a manual process at the start of every session, but there are plans to make this automatic in the future.
+Though a fully manual calibration with the care put into it might always be most reliable. <br>
+
+First, remove any moveable retroreflective markers and targets (trackers) from the view of the cameras as they may cause parts of the image to be ignored for the remainder of the session when they don't need to be. <br> 
+Then, you may start the background calibration by using the button in the toolbar, or relevant cameras individually from the context menu in their camera view. <br>
+This should start showing which areas of the camera view are being ignored for the remainder of the session.
+Additionally, you should now see three buttons: Retry, Accept, and Discard. <br>
+After a short moment after everything has settled, you may press the accept button to store the background mask. <br>
+
+Relevant sources of background noise to be blocked may include the IR LED ring of other cameras, extraneous retroreflective material or clothing laying around, and windows if the sun is too bright (closing the shutters or curtains may help to mitigate this).

@@ -5,14 +5,20 @@ repo_name: Doc Repo
 repo_url: https://github.com/AsterTrack/AsterTrack_Documentation
 edit_uri: edit/main/docs/
 
+# Can't disable TOC globally, only per page
+# toc.integrate + toc_depth 1 is the next best thing to get more horizontal space
+
 theme:
   name: material
   logo: assets/astertrack_icon_white.svg
   favicon: assets/astertrack_favicon.png
+  font: false
   features:
     - navigation.instant
+    - navigation.expand
     - content.action.edit
     - content.action.view
+    - toc.integrate
   icon:
     repo: fontawesome/brands/git-alt
   palette:
@@ -45,6 +51,8 @@ plugins:
   - social
 
 markdown_extensions:
+  - toc:
+      toc_depth: "2"
   - admonition
   - attr_list
   - pymdownx.emoji:

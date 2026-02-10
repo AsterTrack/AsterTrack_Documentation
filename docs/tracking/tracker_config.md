@@ -2,15 +2,23 @@
 
 ## Tracker Types
 
-Currently supported are only **calibrated targets**, optionally with an IMU.
-A target refers to a static set of markers, so no moving parts within. <br>
-In the future, it may be possible to explicitly support trackers comprised of targets in a non-static relation, e.g. a hinge, but that is not planned. <br>
-More relevantly, individual, typically larger, **spherical markers** may be tracked as well, though support for that is lacking right now.
-In the future, it will be a supported configuration, especially in combination with an IMU. <br>
-In the future, other types of trackers may be implemented - anything that can be described and predicted by a model that helps identify and keep track of a set of spacial parameters by observing markers. <br>
-Specifically, for motion capture purposes, a **skeletal tracker** using single markers as reference is very much desired.
-Limbs are described by a skeletal model, and markers attached to said limbs, then labelled and tracked over time.
-Several traditional and neural-network based labelling solutions exist in research.
+**Targets** are 6-DOF trackers, optionally with an IMU, and refers to a static set of markers, with no moving parts within. <br>
+Notably, Targets may use flat markers which can not be triangulated easily - refer to [Tracking](../tracking/tracking_alg.md) for details.
+
+##### Future Trackers
+In the future, other types of trackers may be implemented - anything that can be described and predicted by a model that helps to identify and keep track of a set of spacial parameters by observing markers. For example:
+
+**Pucks** are trackers using a single marker, intended to be identified either by a unique size, or via association with an IMU, making them 6-DOF markers.
+Their use is niche and are currently not fully implemented.
+
+**Non-Rigid Targets** refers to any Target that is not completely static, but follows specific rules, e.g. two targets joined with a hinge. Their use is specific and niche and there are currently no plans to implement this.
+
+**Skeletal trackers** specifically are desired for motion capture purposes, referring to a skeletal model described by limbs constraints that allow single markers attached to the body to be labelled and tracked over time to derive a human pose.
+Several traditional and neural-network based labelling solutions exist in research, but none are implemented yet.
+
+##### Marker Point Cloud
+In addition to these trackers, which are intended to have a unique identification that can be retained over time, AsterTrack is constantly triangulating individual markers and attempts to track them over time on a best-effort basis, assigning temporary identifications to them.
+These can then be re-labelled and used externally, either in real-time or in post-processing.
 
 ## Tracker Configuration
 You can find the trackers listed in the Trackers View, though currently, only target trackers are well-supported.
