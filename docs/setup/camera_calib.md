@@ -2,41 +2,50 @@
 
 *internally also referred to as point calibration* <br>
 
-The cameras need to be calibrated to be useful for tracking.
-This involves determining their instrinsics - mostly lens parameters - and extrinsics - like position and rotation in the room. <br>
-Ideally, this is only required once by the end user, though as long as continuous calibration is not yet implemented fully, it may be required from time to time, to correct for small errors. <br>
-The complexity of the initial calibration depends on what exactly it is you need to calibrate:
-If the lenses are known, some parameters (e.g. radial distortion) may already be determined and can just be used.
-However, if you installed custom lenses, you may need to collect more data to sufficiently constrain these additional parameters.
+The cameras need to be calibrated to be useful for tracking, which involves determining a multitude of lens-specifc, camera-specific, and setup-specific variables. <br>
+Ideally, this is only required once for initial setup, though as long as continuous calibration is not yet implemented fully, it may be required from time to time, to correct for small errors, and will always be beneficial before important work.
 
-### Reason for Calibration
-It is important to consider what your reasons are for (re-)calibrating the camera system:
+## Calibration Steps
 
-1. the error has increased over time
-2. you added a new camera, moved one, or even set up in a completely new room
-3. you changed or reinstalled the lens of at least one camera
+**Collecting Samples:** First you need to collect samples to use for calibration. Make sure you've followed the general procedures for operating the camera system, especially [background calibration](../operation/background.md). <br>
+Then enter the "Camera Calibration" Phase in the "Pipeline" panel while streaming and wave a small spherical calibration marker around the room.
+As long as *Collect* is checked, you should see samples being accumulated from continuously visible marker sequences.
+Try to get good coverage of all cameras, and cover all the space you intend to track.
+Do this relatively slowly in the corners to allow for enough samples to be accumulated there.
 
+**Reconstruction:** Only if you are calibrating after initially setting up the cameras, added cameras, or moved one or more cameras, do you need to estimate their rough position first by hitting "Reconstruction". If you are only looking to improve an existing calibration, skip this step entirely. <br>
+Reconstruction will re-estimate the camera transforms and the lens focal length from scratch, but will not touch any other previously calibrated parameters.
+Still, since this is only an estimation, the pixel error may be significant, especially for cameras with yet unknown lens parameters. <br>
 
-### Collecting Samples
-Make sure you've followed the general procedures for operating the camera system, especially [background calibration](../operation/background.md). <br>
-Then enter the Camera Calibration Phase in the "Pipeline" panel while streaming and wave a (preferrably small) spherical marker around the room.
-If *Record* is checked, you should see samples being accumulated as observations (using the Sequence2D subsystem).
-Note this is different from recording a raw capture (see [recording & replay](../operation/recording.md)). <br>
-The recommended number of samples required varies with camera count and which reasons apply.
-For reason 3, you need significantly more samples than for only reasons 1 and 2.
-A rough range to aim for is 5000 to 50000 for camera systems of up to 8 cameras.
+**Optimisation:** To fine-tune the calibration, you need to press "Optimisation" to start the compute-intensive process of iteratively improving the calibration. <br>
+By default, this will only optimise some parameters, fixing radial lens distortions to factory defaults to speed up optimisation and making it possible to use fewer samples.
+In case you want to change this or other optimisation parameters, see [below for optimisation options](#optimising-options).
 
-### Reconstruction
-Only if reason 2 applies, you need to press *Reconstruct* after recording.
-This will re-estimate the camera transforms and the lens field of view from scratch, but will re-use any existing parameters like lens distortions from prior calibrations.
-Still, since this is only an estimation, the error may be around up to 5px for already calibrated cameras, and up to 20px for previously uncalibrated cameras. <br>
+## Custom Lenses
 
-### Optimisation
-The next step is Optimisation - which parameters you need to optimise depends on the relevant reasons.
-See the tooltips for descriptions of each option. <br>
-If only reason 2 applies, e.g. you only changed the camera setup, you may only want to optimise Camera Transform and Lens - the exact parameters estimated by reconstruction. <br>
-In basically all other cases, it makes sense to optimise the Alignment parameters that are specific to each camera and its lens installation. <br>
-Optimising (radial) distortions should generally be disabled - the parameters of the official lenses are known and absolutely fine to use as-is.
-Only if you completely reset the calibration on purpose or installed new, unknown lenses should you optimise radial distortions anew. <br>
-If all lenses are the same, it is highly recommended to share radial distortions - if the lenses are not all the same, collect a lot of samples and plan for way longer processing times.
-In the future, it may be possible to select which lens each camera uses to share and optimise exactly the required parameters.
+After you followed the steps to [install a custom lens](camera_setup.md#custom-lenses), you need to calibrate that lens to determine its intrinsic parameters.
+The internal optimisation system makes use of lens presets to know which lens should be the same and, if desired, share their radial distortion parameters to constrain the solution.
+This means that, when changing the lens, you need to explicitly set the lens used - or at least ensure it is not using the default lens preset.
+
+#### Setting Lens Presets
+You can see the individual cameras calibrations by expanding the "Cameras" menu in the "Camera Calibration" section, showing detailed information in the info tooltip.
+Here, you can also inspect the lens preset associated with each camera, change them, or create a new one from the current calibration - you can update that preset later as you calibrate your new lens. <br>
+When setting up a new custom lens, create a new lens preset with "Make Preset" from the dropdown, and assign it to the relevant cameras using that lens.
+This will the speed and reliability of the optimisation later on.
+
+#### Optimising Options
+To calibrate a new lens, you need to open the "Optimisation Options" and enable the toggle "Distortions". The rest is recommended to be kept as-is. <br>
+*Transform*, *Lens*, and *Align* are the basic set of parameters describing the specific setup and lens installation. <br>
+*Distortions* enables optimisation of radial lens distortions.
+If you keep *Share* enabled, the radial distortion parameters of all cameras sharing a lens preset will be grouped and optimised together.
+Any cameras with no lens preset associated will always be optimised individually.
+The last set of buttons selects the order of radial distortions used - if you lower this, the remaining parameters will be reset to 0, not just ignored. <br>
+In practice, radial distortions are completely fine to share between lenses of the same make, and it requires a lot of samples to improve upon the shared default.
+Worse, if radial distortions are calibrated with too few samples, or not shared across multiple cameras, their parameter space may be underconstrained, allowing the optimisation routine to overfit, resulting in inaccurate parameters despite having a low error.
+
+#### Updating Lens Presets
+After the calibration of your camera system with sufficient samples, you may want to update any shared lens presets so you can re-use it in the future if you install this lens in more cameras. <br>
+You can do that by expanding "Lens Presets", and hitting the "Update" button of the lens preset you wish to update.
+This will fetch the radial distortions of all cameras used in this session that referenced this lens preset, and average them if required (e.g. Share was not enabled). 
+You can also edit the lens preset name or delete them by first entering edit mode with "E", and you can select the default lens preset using the right column. <br>
+Finally, to save your changes to the presets to disk, you need to explicitly hit the "Save Lenses" button.

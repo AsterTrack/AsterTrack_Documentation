@@ -51,7 +51,8 @@ The default lenses right now have a high field of view, with significant distort
 Professional tracking systems often use narrower field of views with less distortions, but that often pairs with larger tracking spaces requiring more cameras. <br>
 The current default lenses have an effective field of view of (89°h, 51°v, 108°d), but due to about 128 horizontal pixels being unused by processing, you will get about (78°h, 51°v, 99°d) tracking field of view. <br>
 The lenses can be relatively easily exchanged for custom setups, the default ones are manually fixated with a fixing ring and light glue which can be easily removed. <br>
-The main problem will be lens compatibility due to total height and focal length, and achieving a good focus.
+The main problem will be lens compatibility due to total height and focal length, and achieving a good focus. <br>
+After installation, you will need to [calibrate the new lenses](camera_calib.md#custom-lenses) by following the steps and optimising with a lot of samples.
 
 #### Lens Compatibility
 The camera has a filter switcher, and it does limit the kinds of lenses you can use. Some complex lenses that compensate for distortion may have a focal length smaller than the height of the filter switcher, and thus can not be focused without removing the filter switcher. If you must use such a lens, you may need to order one with an IR-pass filter around 850nm attached or carefully attach one yourself, and replace the filter switcher assembly with another suitable M12 lens mount. <br>
