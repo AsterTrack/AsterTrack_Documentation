@@ -50,7 +50,7 @@ Although implementation has not started yet, please contact us with the applicat
 
 
 ## Planned Support
-This is a list of applications and use cases we are aware of and intent to support in the future to some degree, with some getting direct integrations (see [Clients](#clients) above), some supported via common [I/O protocols](#io-protocols), and some supported via [file export](#file-formats) only.
+This is a list of applications and use cases we are aware of and intent to support in the future to some degree, with some getting [direct integrations](#direct-integrations), some supported via common [I/O protocols](#io-protocols), and some supported via [file export](#file-formats) only.
 If an application you want to use is not on here or in the list above, feel free to contact us with your use case.
 
 **Unreal/Unity/Godot:** Realtime mirroring of tracked objects, at first planned via SteamVR only, relying on existing plugins.
