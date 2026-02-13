@@ -12,6 +12,9 @@ In the "Camera Firmware Update" section, you can now select the firmware file to
 In the future, there may be a descriptive, complete update package format that combines these, and also a way to upload a complete OS image file (.img) to the camera for OS upgrades.
 
 ## Controller Firmware Update
-Currently you need to manually reboot the Controller into the bootloader, which can be done by pressing the middle Flash button for one second (technically half a second is enough). <br>
-After that, it should appear as "WinChipHead", which is the default bootloader. You can then either use the isp55e0 built with the controller project through the provided VS Code task, or use the firmware flashing tool integrated into the AsterTrack Application. <br>
-Switch to the "Devices" panel and select the firmware binary to upload in the "Controller Firmware Update" section. Then, with a controller in bootloader mode, hit "Flash Controller in Bootloader".
+Similarly in the "Device" panel, the "Controller Firmware Update" section guides you through updating the controller firmware. <br>
+Currently you need to manually reboot the Controller into the bootloader, which can be done by pressing the middle Flash button for at least half a second. <br>
+After that, it should appear as "WinChipHead", which is the default bootloader. On Windows, you may need to follow additional instructions listed in the UI to install the "WinUSB" driver for the bootloader using Zadig. <br>
+If you are having troubles getting the "WinChipHead" bootloader to appear, the controller firmware may be bricked.
+To forcefully boot into the bootloader, disconnect all cables from the controller, press and hold the middle Flash button, plug the controller in using the data port, and only then release the flash button. <br>
+Once you can confirm the controller is in the bootloader, you may select the firmware binary to upload in that "Controller Firmware Update" section, before hitting "Flash Controller in Bootloader".
