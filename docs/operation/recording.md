@@ -1,6 +1,6 @@
 # Recording & Replay
 
-### Recording
+## Recording
 You can record a raw capture for later replay, including blobs and images from the cameras and IMU samples.
 The controls for this can be found in the "Control" View, Section "Recording". <br>
 Here, you can record individual sections or the entire past session (as long as it is still in memory) and add them to the list of sections.
@@ -17,7 +17,7 @@ While there exists no tooling for this currently, the capture and tracking file 
 
 So a capture comprised of the two files `XX_capture_0_recording_VR.json` and `XX_capture_1.json` would appear as the entry `Capture XX: recording_VR`, and a single capture named `YY_capture_verification.json`, would appear as the entry `Capture YY: verification` respectively.
 
-### Replay
+## Replay
 To load a capture, make sure you are currently not in simulation or device mode. <br>
 The menu `Replay/Replay capture` will list all captures, potentially with names, which will replace any current replay upon loading. <br>
 You can also append another capture if you are already in replay. If they have been captured in the same session, you may use `Append similar capture`, which will use the cameras and calibrations of the currently loaded replay, provided they match exactly. Otherwise, you should use `Append separate capture`, which ensures that all added cameras are unique, replacing their ID with a temporary one if needed. This allows them to have different calibrations, but makes saving any new calibration of them cumbersome. <br>

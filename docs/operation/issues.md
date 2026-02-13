@@ -1,17 +1,19 @@
 # Known Issues
 
-## Hardware / Firmware
+## Firmware
 
 #### Unreliable UART protocol
-The camera currently relies on the PL011 UART to receive packets, but due to underlying implementation problems in the driver, this is not reliable at 8MBaud. We are planning to route all UART packets through the MCU to make this rock-solid - all time-critical packets are already handled exclusively by the MCU. Until this has been implemented, there might be occasional packet drops leading to misconfigured cameras or failure to start streaming entirely.
+The camera currently relies on the PL011 UART to receive packets, but due to underlying implementation problems in the driver and the UART hardware itself, this is not reliable at 8MBaud. We are planning to route all UART packets through the MCU to make this rock-solid - all time-critical packets are already handled exclusively by the MCU. Until this has been implemented, there might be rare packet drops leading to misconfigured cameras or failure to start streaming entirely.
 
 #### Controller Shared Packet Stalling
 The controller has a complex queueing system to distribute UART packets from 8 ports to (potentially multiple) USB interrupt endpoints, often split up in parts. <br>
 Shared Packets, as part of that system, may currently "stall" (be stuck in writing state) and fill up the queue.
 This shows as "SharedFull" errors by the controller and is currently being investigated.
 
+## Hardware
+
 #### Slight whirring in the camera
-The camera currently exhibits a slight whirring noise, likely due to the complex power staging system.
+The camera currently exhibits a slight whirring noise, likely due to the Raspberry Pi interacting with the complex power staging system.
 We hope to iron this out in a future version.
 
 #### OV9281 Pixel Instability
