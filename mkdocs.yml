@@ -92,3 +92,4 @@ nav:
     - tracking/calib_target.md
     - tracking/calib_imu.md
     - tracking/tracking_alg.md
+    - tracking/integrations.md

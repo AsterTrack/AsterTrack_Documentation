@@ -1,9 +1,9 @@
 # Tracker IMU Calibration
 
 Trackers may optionally have IMUs associated, which provide either raw or fused samples.
-These may be supplied by an integrated driver or an external source like an I/O protocol. <br>
+These may be supplied by an integrated driver or an external source like an [I/O protocol](integrations.md#io-protocols). <br>
 The integrated drivers currently support experimental hardware based closely on SlimeVRs nRF-Slimes, modified to include timesync, providing fused IMU samples. <br>
-External sources supporting a custom VRPN protocol may also provide IMUs in return for tracking data.
+External sources supporting a custom [VRPN](integrations.md#vrpn) protocol may also provide IMUs in return for tracking data.
 Such an integration is currently being worked on for monado, providing raw IMU samples. <br>
 These IMUs need to be calibrated to align with the optical tracker, which requires extensive algorithms to do automatically.
 Currently, only the gyroscope is being automatically calibrated and partially used for tracking - meaning only IMUs providing raw samples can currently be used.

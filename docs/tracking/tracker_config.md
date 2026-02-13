@@ -33,10 +33,10 @@ Trigger Conditions include:
 - always assume it is trackable, e.g. when detection method is cheap
 - when triggered manually, e.g. if detection method is expensive and you want to pick which trackers are involved
 - when the IMU uniquely paired to that tracker is connected, indicating presence of that tracker
-- when a client connects through one of the configured I/O protocols and requests tracking data from that tracker
+- when a client connects through one of the configured [I/O protocols](integrations.md#io-protocols) and requests tracking data from that tracker
 
 ##### Expose Conditions
-When a tracker is **exposed**, it is available on configured I/O protocols for clients to request tracking data from. Depending on the I/O protocol, this may be actively advertising them as available, or only passively exposing them. <br>
+When a tracker is **exposed**, it is available on configured [I/O protocols](integrations.md#io-protocols) for clients to request tracking data from. Depending on the I/O protocol, this may be actively advertising them as available, or only passively exposing them. <br>
 Expose Conditions include:
 
 - always, to e.g. allow external programs to determine the trackers to track
