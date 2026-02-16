@@ -18,4 +18,4 @@ The rest depends heavily on the use case: <br>
 As a tracking system originally designed for consumer-first VR use, the support of flat marker targets is well developed, but to truly be useable for VR, the IMU integration needs to be completed first, and common tracker types developed and standardised. <br>
 For use cases just relying on a triangulated point cloud of markers, this has been working for a long time - though integration support like C3D export is still being worked. <br>
 Hardware is in the process of receiving its final major iteration, adding protections, more mounting points, and support for future wireless features.
-Once it is ready, it will be available as a [dev kit](building/hardware.md#hardware), and [DIY versions](building/hardware.md#going-forward-with-diy) are planned as well.
+Once it is ready, it will be available as a [dev kit](building/hardware.md#hardware), and [DIY versions](building/hardware.md#diy-version) are planned as well.

@@ -3,23 +3,27 @@
 Currently, the only way to get a hold of the hardware is through the first batch of dev kits that is currently being planned. <br>
 If you are interested, please contact [devkits@astertrack.dev](mailto:devkits@astertrack.dev).
 
-## Development History and DIY
-There are good reasons that despite always being intended to be open source and open hardware, we have not distributed hardware design files and asked people to build it before.
-The hardware is and always was a significant expenditure, and as long as the software to use it was not ready, there was only ever the promise of future potential. <br>
-We felt it was not appropriate to try to get developers or early adopters onboard with this promise alone when the timeline for getting the project into a genuinely useable state envisioned by us was so uncertain.
-While releasing and publicising it earlier as a DIY project might have sped up development, knowing that an imperfect multi-camera system held nothing but frustration for its users, and that this fact is hard to properly convey in the same sentence as the potential it held, we decided to get it into a useable state first. <br>
+## Development Philosophy
+This project is open source, and will also be open hardware in the future.
+However, contrary to most open source projects, we decided to develop this in relative silence until it was in a state we were comfortable sharing for people to use. <br>
+The reasoning is two-fold: <br>
+First, the hardware requires significant upfront investment to build.
+Not only does it use multiple expensive components like Raspberry Pis and the OV9281 camera module, it also relies on custom PCBs, with no viable option to use off-the-shelf development boards to reduce the complexity. <br>
+Second, we repeatedly failed to accurately estimate a timeline early on (almost exclusively due to software development).
+We were not comfortable with people investing this much money and time into a project based on our promises, if we could not give even loose guarantees on when it would live up to the potential we envisioned for it. <br>
 Years have passed, more than was ever intended, and there is still a lot of potential for improvements in both hardware and software even now.
-But at least we can be sure that early adopters and developers who decide to spend money on the first batches do so without solely relying on promises of future potential - the base multi-camera experience is solid, with only the feature set required determining its current usability.
+But at least we can be sure that early adopters and developers who decide to spend money on the first batches do so knowing what they will receive.
+The base multi-camera experience is solid, with usability mostly determined by the features required for a particular use case - and we intend to discuss with every early adopter to ensure their requirements are currently met.
 
-## Going forward with DIY
-While the core functionality of the hardware is deceptively easy to recreate (see [first prototype hardware](https://www.seneral.dev/astertrack.html)), the current [block diagram of the system](../details/architecture.md) hints at the complexities that result from making the system actually stable and useful for real world use.
-As such, the custom PCBs are considered a necessity, with their improvements to system stability, complex power management, and many usability features, even when cutting some additional features like wired/wireless use or the filter switcher. <br>
+## DIY Version
+While the core functionality of the hardware is deceptively easy to build from scratch (see [first prototype hardware](https://www.seneral.dev/astertrack.html)), the current [block diagram of the system](../details/architecture.md) hints at the complexities that result from making the system actually stable and useful for real world use.
+As such, the custom PCBs are considered a necessity, with their essential improvements to system stability and usability. <br>
 That means, our approach to DIY will always require ordering the PCBs, either from us or from industry-standard PCBA partners.
 Sadly, this is in practice quite unattainable at a reasonable price for individuals, with just the PCBA order costing as much as a small camera system. <br>
-Additionally, we are currently using a custom camera module which includes a filter switcher. While it may be possible for us to sell those individually in the future, more likely we would want to redesign the PCB to instead use off-the-shelf modules like those from [innomaker](https://www.inno-maker.com/product/cam-mipi9281raw-v2/), and a different case to go along with that larger form factor.
+Additionally, we are currently using a custom camera module which includes a filter switcher.
+While we plan to make those available individually in the future, more likely we would want to create a separate PCB version intended to be used with off-the-shelf modules like those from [innomaker](https://www.inno-maker.com/product/cam-mipi9281raw-v2/), and a different case to go along with that form factor.
 We are aiming to work on this more DIY-compatible version of the PCBs in the future after the current design is finalised, to allow for iteration by the community without huge capital expenses. <br>
 And there is potential for iteration that we are excited to see: Various different camera sensors like the SC132GS, purpose-built versions, perhaps even other processing solutions like FPGAs - there is a lot of room to improve still.
-For anyone looking to DIY such a system, please take a look at the following section to find out how we arrived at certain critical design decisions.
 
 ## Driving Design Decisions
 AsterTrack has been designed around the custom hardware from the very beginning and it is essential for a performant and user-friendly multi-camera experience.
