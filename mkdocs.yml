@@ -80,16 +80,18 @@ nav:
   - Operation:
     - operation/background.md
     - operation/recording.md
-    - operation/wireless.md
     - operation/safety.md
     - operation/issues.md
   - Setup:
     - setup/camera_setup.md
     - setup/mounting_hardware.md
+    - setup/wireless.md
     - setup/camera_calib.md
   - Tracking:
     - tracking/tracker_config.md
     - tracking/calib_target.md
     - tracking/calib_imu.md
-    - tracking/tracking_alg.md
     - tracking/integrations.md
+  - Details:
+    - details/architecture.md
+    - details/tracking_alg.md

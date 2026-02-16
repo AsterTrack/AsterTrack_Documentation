@@ -3,18 +3,18 @@
 If you are interested in Prototype Hardware, please contact [devkits@astertrack.dev](mailto:devkits@astertrack.dev). <br>
 Building the hardware yourself is theoretically possible, but in practice quite unattainable for a reasonable price for individuals.
 We are aiming to work on more DIY-compatible versions of the PCBs in the future after the current design is finalised. <br>
-The block diagram of the system is rather simple (TBD), but in order to make the system actually stable and useful in real world use, the custom PCBs are a necessity, with their ESD protections, voltage regulations, and additional usability features.
+The [block diagram of the system](../details/architecture.md) is rather simple, but in order to make the system actually stable and useful in real world use, the custom PCBs are a necessity, with their ESD protections, voltage regulations, and additional usability features.
 
-### Implementation Details
+## Implementation Details
 AsterTrack has been designed around the custom hardware from the very beginning and it is essential for a performant and user-friendly multi-camera experience. <br>
 Most importantly, the images need to be processed on-board the AsterTrack Cameras for a scalable, low-latency system that isn't constrained by data-throughput and host system capabilities.
 That is what the Raspberry Pi Zeros are doing: They run a custom QPU assembly program processing the images at high speed and great efficiency, faster than a CPU could. <br>
 After further refinement, the detected image blobs are then sent over a custom UART protocol through a CAT5e cable to the AsterTrack Controller, which is a custom board based on the CH32V307 chip.
 Its purpose is to synchronise and communicate with up to 8 AsterTrack Cameras, and connecting to the host PC through a USB 2.0 HS connection.
 While a direct protocol between cameras and host PC would have made some things easier (like an Ethernet connection), it would have made the setup UX much worse compared to a simple USB 2.0 device. <br>
-Finally, the host PC receives the time-synchronised blob data from the cameras and can use it to calibrate and track objects in 3D space - see [camera calibration](../setup/camera_calib.md), [target calibration](../tracking/calib_target.md), and [tracking](../tracking/tracking_alg.md),
+Finally, the host PC receives the time-synchronised blob data from the cameras and can use it to calibrate and track objects in 3D space - see [camera calibration](../setup/camera_calib.md), [target calibration](../tracking/calib_target.md), and [tracking](../details/tracking_alg.md).
 
-### DIY
+## DIY
 
 A DIY version using off-the-shelf camera sensors is planned, but will always require custom PCBs.
 While it is theoretically possible to build the hardware with just a CH32V307 EVT board, a Raspberry Pi, an OV9281 camera module from innomaker and some wires, it is insufficient for real-world use. <br>

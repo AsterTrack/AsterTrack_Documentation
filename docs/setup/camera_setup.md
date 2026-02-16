@@ -29,7 +29,7 @@ CAT 5e cables can often be found locally, in the exact length, color, and even s
 This way you can select the cable to blend in with your environment as much as possible if that is a concern.
 High quality flat and extra small cables exist for a higher price. <br>
 Picking the camera locations carefully can minimise the complicated runs you have to do.
-But if a cable run is too prohibitive for whatever reason, you may consider [wireless operation](../operation/wireless.md#wireless-camera-operation) for one or more affected cameras, once that is supported, though you will still have to power the camera from a nearby power outlet.
+But if a cable run is too prohibitive for whatever reason, you may consider [wireless operation](wireless.md#wireless-camera-operation) for one or more affected cameras, once that is supported, though you will still have to power the camera from a nearby power outlet.
 
 #### Room Features
 Look out for room features that may be used to either facilitate mounting or hide the cable runs:

@@ -25,5 +25,5 @@ Appending similar captures is intended to aggregate samples of a session to impr
 Once a replay has started, the "Control" panel should change completely, switching the Section "Recording" for "Replay".
 Now, you can halt the replay, advance frame-by-frame, to the next image, or as quickly as possible, restart the replay from the beginning or even jump to a specific frame. <br>
 Theres also a way to halt pipeline processing when a special Breakpoint-Code-Snippet is executed, leaving the UI interactive for inspection.
-This is currently not widely used but may be useful on a case-by-case basis, e.g. when inspecting when and why a tracker got lost [using visual tooling already in the UI](../tracking/tracking_alg.md#frame-inspection).
+This is currently not widely used but may be useful on a case-by-case basis, e.g. when inspecting when and why a tracker got lost [using visual tooling already in the UI](../details/tracking_alg.md#frame-inspection).
 Similarly, there are simple tools to simulate frame drops or occlusion of markers, and tools to disable cameras entirely, all to aid in tracking development.

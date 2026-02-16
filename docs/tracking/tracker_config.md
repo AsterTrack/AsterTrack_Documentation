@@ -3,7 +3,7 @@
 ## Tracker Types
 
 **Targets** are 6-DOF trackers, optionally with an IMU, and refers to a static set of markers, with no moving parts within. <br>
-Notably, Targets may use flat markers which can not be triangulated easily - refer to [Tracking](../tracking/tracking_alg.md) for details.
+Notably, Targets may use flat markers which can not be triangulated easily - refer to [Tracking](../details/tracking_alg.md) for details.
 
 ##### Future Trackers
 In the future, other types of trackers may be implemented - anything that can be described and predicted by a model that helps to identify and keep track of a set of spacial parameters by observing markers. For example:
