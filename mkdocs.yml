@@ -77,21 +77,22 @@ nav:
     - building/hardware.md
     - building/software.md
     - building/updating.md
-  - Operation:
-    - operation/background.md
-    - operation/recording.md
-    - operation/safety.md
-    - operation/issues.md
   - Setup:
     - setup/camera_setup.md
     - setup/mounting_hardware.md
     - setup/wireless.md
     - setup/camera_calib.md
+  - Operation:
+    - operation/background.md
+    - operation/recording.md
+    - operation/issues.md
+    - operation/safety.md
   - Tracking:
     - tracking/tracker_config.md
     - tracking/calib_target.md
     - tracking/calib_imu.md
     - tracking/integrations.md
-  - Details:
+  - Technical Details:
     - details/architecture.md
+    - details/frame_timing.md
     - details/tracking_alg.md
