@@ -37,3 +37,15 @@ This only makes sense when considering the use of FPGAs.
 Another important design decision was to focus on wired cameras, despite their obvious usability concerns, as consumer wireless systems are too unreliable for such low-latency and medium-bandwidth requirements of sending blob and image data to a single system from many cameras at once.
 Instead, we are using the Raspberry Pis built-in UART and use a custom controller to pass the data to the host system via USB, which the CH32V307 chip allowed us to do. The alternative, using Ethernet and PoE switches, does have some advantages, but would have increased costs and significantly lowered the usability for end users. <br>
 Wireless operation is planned, but it will never be reliable for all users, and can not be relied upon as the sole method of communication. and is instead reserved as an option. Due to delays in software development, we were already able to accommodate for this in our first dev kits.
+
+## Required Hardware
+You need at least 3 AsterTrack Cameras and one AsterTrack Controller for a minimal setup. You can add more cameras and even controllers at any point, with each controller supporting up to 8 cameras. <br>
+Future features like IMU may require wireless dongles and IMU hardware itself, and future wireless operation may require a similar wireless dongle as a sync beacon. <br>
+Dev Kits may require you to assemble the camera, perhaps even source your own [Raspberry Pi Zero 2s](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w), or 3D printed case.
+The details of this are still being worked out and up for individual discussion. <br>
+You will need mounting hardware for each camera - while we will likely always provide our recommended mounting hardware, a full list of your options can be found in the dedicated [mounting documentation](../setup/mounting_hardware.md), and tips for room setup in the [room setup documentation](../setup/camera_setup.md). <br>
+Additionally, you will need a USB PD power source or another power supply that can output between 12V to 24V to power all cameras via the Controller.
+10W should be sufficient for a 3 camera setup, each camera needs about 3W, but please calculate with 5W to be safe.
+You also have the option to power each camera individually with a standard 5V power supply (Power Delivery not required) with the cameras USB-C port, intended to be used for wireless operation. <br>
+Finally, you'll need a USB Data and Power cable for each controller, and a CAT 5e cable with straight wiring for each camera.
+These CAT 5e cables are best sourced on your own, they can often be found locally for cheap in a variety of lengths, colors and shapes, depending on your exact setup and requirements.
