@@ -50,6 +50,9 @@ plugins:
   - privacy
   - search
   - social
+  - redirects:
+      redirect_maps:
+        'operation/background.md': 'operation/daily_use.md'
 
 markdown_extensions:
   - toc:
@@ -83,7 +86,7 @@ nav:
     - setup/wireless.md
     - setup/camera_calib.md
   - Operation:
-    - operation/background.md
+    - operation/daily_use.md
     - operation/recording.md
     - operation/issues.md
     - operation/safety.md

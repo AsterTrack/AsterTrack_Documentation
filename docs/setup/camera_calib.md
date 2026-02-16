@@ -10,7 +10,7 @@ Ideally, this is only required once for initial setup, though as long as continu
 Follow these steps to calibrate the camera system.
 Note that the **Reconstruction** and **Room Calibration** are generally only required on first setup, though their exact requirements vary.
 
-**Collecting Samples:** First you need to collect samples to use for calibration. Make sure you've followed the general procedures for operating the camera system, especially [background calibration](../operation/background.md). <br>
+**Collecting Samples:** First you need to collect samples to use for calibration. Make sure you've followed the general procedures for operating the camera system, especially [background calibration](../operation/daily_use.md). <br>
 Then enter the "Camera Calibration" Phase in the "Pipeline" panel while streaming and wave a small spherical calibration marker around the room.
 As long as *Collect* is checked, you should see samples being accumulated from continuously visible marker sequences.
 Try to get good coverage of all cameras, and cover all the space you intend to track.
