@@ -13,8 +13,7 @@ This shows as "SharedFull" errors by the controller and is currently being inves
 ## Hardware
 
 #### Slight whirring in the camera
-The camera currently exhibits a slight whirring noise, likely due to the Raspberry Pi interacting with the complex power staging system.
-We hope to iron this out in a future version.
+The camera currently exhibits a slight whirring noise, likely some form of coil whine. This is only audible very close to the camera, and we are investigating the specific source of the noise and hope to eliminate it in a future version.
 
 #### OV9281 Pixel Instability
 During development it was discovered that the OV9281 has an inherent hardware fault, which can causes pixel instability at high pixel-to-pixel contrasts.

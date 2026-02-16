@@ -3,7 +3,8 @@
 ## I/O Protocols
 I/O protocols are the way to stream tracking data out of the AsterTrack Server Application and towards various clients in real-time.
 Clients may include VR drivers, intermediate MoCap software, motion analysis programs, or any custom program developed by you. <br>
-There are some [examples of custom clients](https://github.com/AsterTrack/Clients) interfacing with these protocols in a selection of languages.
+There are some [examples of custom clients](https://github.com/AsterTrack/Clients) interfacing with these protocols in a selection of languages. <br>
+In the AsterTrack Server Application, these integrations can be configured in the "Integrations" panel.
 
 #### VRPN
 This is currently intended to be the primary I/O protocol for realtime streaming.
@@ -57,7 +58,7 @@ If an application you want to use is not on here or in the list above, feel free
 
 **Unreal:** Planned to directly integrate via a LiveLink Plugin, providing Live Link Controllers (Transform, Camera).
 
-**VMC Protocol:** Planned to integrate with any VMC Performer () by acting as a VMC Assistant and streaming 6-DOF tracking data.
+**VMC Protocol:** Planned to integrate with any VMC Performer by acting as a VMC Assistant and streaming 6-DOF tracking data.
 
 **Motion Builder:** Planned support via C3D file import.
 

@@ -22,7 +22,7 @@ But in the end, every tracking space is unique and you may want to experiment to
 
 #### Cable Runs
 For wired use, the cameras need to connect to the controllers for both power and communication.
-The hardware is NOT Ethernet or PoE (Power over Ethernet) compatible, so unless you know for sure you have direct cable runs, do not use any ethernet cables built into your house, do not use PoE hardware, and do not use ethernet switches instead of the AsterTrack controller!
+The hardware is NOT Ethernet or PoE (Power over Ethernet) compatible, so unless you know for sure you have direct cable runs, do not use any ethernet cables built into your house, do not use PoE hardware, and do not use ethernet switches instead of the AsterTrack Controller!
 Doing so may damage the hardware or equipment used. <br>
 This also means you can not bundle the cable runs together into one cable, and you can not chain the cameras together - every camera needs a direct connection to the controller with a CAT 5e cable. <br>
 CAT 5e cables can often be found locally, in the exact length, color, and even shape that your setup needs, for a relatively low price.
@@ -44,7 +44,7 @@ You may want to explore other [mounting options](mounting_hardware.md), includin
 ## Visual Feedback
 You may preview a cameras field of view in a potential mounting location by turning on image streaming.
 This can be done in the context menu of the camera view, by pressing 'H' while hovering over it, and in the future via the buttons on the camera itself. <br>
-To increase usefulness during setup, you may use the contrast and brightness settings in the "Visualisation" panel, Section "Image Adjustment" to make the image more visible, and set the camera view to full-screen by pressing the detach button in the top left of the camera view and sizing it to maximise the area.
+To increase usefulness during setup, you may use the contrast and brightness settings in the "Visualisation" panel, Section "Image Adjustment" to make the image more visible, and set the camera view to full-screen by pressing the detach button in the top left of the camera view, and then pressing it again to maximise the area.
 
 ## Custom Lenses
 The default lenses right now have a high field of view, with significant distortions that need to be compensated for, to improve ease of setup in VR-related use cases over absolute tracking quality. <br>
