@@ -21,7 +21,7 @@
 }
 /* For SVGs exported from diagrams.net, default dark-mode background */
 :root {
-	--ge-dark-color: #121212;
+	--ge-dark-color: #202020;
 }
 /* Helvetica is not available on Google Fonts */
 :root {
