@@ -10,7 +10,7 @@ Currently, only the gyroscope is being automatically calibrated and partially us
 
 ## Associating an IMU
 Visit the "Trackers" panel to see and edit a [trackers IMU association](tracker_config.md#imu-calibration). <br>
-Some IMUs may be intrinsically associated to a tracker, e.g. if a VRPN client like monado is configured to connect to the AsterTrack server to override tracking and expose the IMU samples in return, that IMU will automatically be associated to the respective tracker. <br>
+Some IMUs may be intrinsically associated to a tracker, e.g. if a VRPN client like monado is configured to connect to the AsterTrack Server Software to override tracking and expose the IMU samples in return, that IMU will automatically be associated to the respective tracker. <br>
 Others may need to be explicitly associated - in the future, this may be done automatically by way of detecting similar movement patterns by an optical tracker and connected IMU. <br>
 After this, multiple stages of IMU calibration may be executed - mostly in the background right now, and not fully implemented yet - after which you may need to save the tracker configuration using the button in the "Trackers" panel. <br>
 An UI for visualising the IMU calibration is planned.
@@ -21,7 +21,7 @@ The first uses periods of no movements to calibrate a gravity vector, which toge
 This requires the user to place the tracker in various orientations and keep it still for a bit. <br>
 The other relies a lot more on good timesync, and accurate interpolation at the time of each frame to determine the rotational offset automatically from arbitrary movement over time. <br>
 While the latter method is more approachable, an exact, accurate timesync may not be guaranteed for all drivers, as they may exhibit a time offset compared to the optical data.
-In that case, the former method is much more reliable and may in turn become a crucial part in calibrating that time offset.
+In that case, the former method is much more reliable.
 
 ## Quaternion Calibration
 Calibrating the rotational offset for fused IMUs is not currently implemented. <br>

@@ -7,7 +7,8 @@ This process is currently long and arduous, and might even require manual interv
 For this reason, it is **highly** recommended to record your target view aquisition and [perform the processing in a replay](#work-with-recordings).
 This reduces the chances of an unforseen crash disrupting the work. <br>
 The following is an indepth explanation including some technical insights, as currently such understanding may still be beneficial to resolve issues as they pop up.
-This process may be fully automated in the future as the automatic process is improved and confidence is built that it handles all targets well.
+This process may be fully automated in the future as the automatic process is improved and confidence is built that it handles all targets well. <br>
+To be clear: This process is only needed once for each target - if you design a target and then reproduce it using e.g. 3D printing, the end user will not need to calibrate it themselves - though a slight optimisation might be beneficial to accommodate variations.
 
 ## Target View Aquisition
 When streaming and entering the "Target Calibration" phase in the "Pipeline" panel, the pipeline automatically searches for good views of the target to be calibrated.
@@ -22,12 +23,12 @@ If, after optimising, a Target View reaches a sufficient level of quality, it wi
 Depending on the complexity of the target, 4 to 8 views may be required in the next stage, though you can always return to add more target views if you find them insufficient.
 This can be done by recording more target view samples in a separate instance and appending the capture as a replay to the processing instance.
 Or you can retry reconstruction of existing target views that didn't make the cut the first time.
-The algorithm is non-deterministic due to relying on an unreliable initial estimate and iterative optimisation, so there is a good chance this does work. <br>
+The algorithm is non-deterministic due to relying on an unreliable initial estimate and iterative optimisation, so there is a good chance this does work, and should be your first avenue to try. <br>
 You can select target views to [visually inspect](#visual-inspection) their current state.
 This can be used to verify that a target view with low error is not just overfitted, but actually represents parts of the structure of the target you wish to calibrate.
 
 ## Target Assembly
-After some target views of sufficient quality are done processing, you may press 'Auto-Assembly' to start assembling multiple views into one final target.
+After some target views of sufficient quality have finished processing, you may press 'Auto-Assembly' to start assembling multiple views into one final target.
 It will first heuristically pick a base view to start with, which you can override manually using the UI, and then iteratively align other views and merge them one at a time. <br>
 This merging is itself done in multiple steps:
 
@@ -41,7 +42,7 @@ It may also add previously unused marker sequences that are now deemed to corres
 Similar to target views, you can select assembly stages to [visually inspect](#visual-inspection) their current state.
 
 ### Visual Inspection
-When you select either a target view and target assembly stage, you can visually inspect their current state in both the 3D view and the "Insights" panel. <br>
+When you select either a target view or a target assembly stage, you can visually inspect their current state in both the 3D view and the "Insights" panel: <br>
 The *Target Calibration* Section in the "Visualisation" panel of the 3D view provides additional visualisation options:
 
 - Showing the currently estimated Field of View of each marker
@@ -50,7 +51,7 @@ The *Target Calibration* Section in the "Visualisation" panel of the 3D view pro
 
 In the "Insights" panel, "Target Calibration/Target Markers" tab you can see the samples of each marker, and by hitting space you can replay the frames used as data. <br>
 Both in the 3D view and the "Insights" panel, you can focus and/or select markers, which is primarily relevant for editing. <br>
-For stages, you are able to unlock more visualisation options by entering manual editing mode, e.g. to see exactly which sequences make up each markers observations, and potentially correct errors.
+For stages, you are able to unlock more visualisation options by entering manual editing mode, e.g. to see exactly which marker sequences make up each markers observations, and potentially correct errors.
 
 ### Manual Intervention
 You may at any point stop the automatic assembly and intervene manually using the provided editing tools.
@@ -71,7 +72,7 @@ This visualisation also makes marker observations that are misattributed to a di
 
 ## Work with Recordings
 it is **highly** recommended that you record the target view aquisition by using the [recording & replay tools](../operation/recording.md).
-Then, you can load the capture as a replay and continue with Target Calibration as instructed, ensuring maximum stability and flexibility, and ensuring that foundational parts of the processing, the Sequence2D subsystem, is deterministic. <br>
+Then, you can load the capture as a replay and continue with Target Calibration as instructed, ensuring maximum stability and flexibility, and ensuring that foundational parts of the processing, like the Sequence2D subsystem, are deterministic. <br>
 You can also at any point save the processing of Target Views and Target Assembly: <br>
 **Target Views** are stored in one shared file (*target_calib_views.json*) alongside the shared observation sequences (*target_calib_observations.json*) and are only designed for one concurrent Target Calibration. <br>
 **Target Assembly Stages** are stored as new files labelled in increasing order (*assembly_stage_XX.json*) alongside the same shared observation sequences (*target_calib_observations.json*) <br>
@@ -80,3 +81,13 @@ If you overwrite this file, you may be able to recreate it, but that relies on t
 This means it might not work across different program versions, and it assumes you started Target View Aquisition in the exact same frame.
 That is why it is **highly** recommended you do the initial processing in replay mode as well, and enter Target Calibration before starting the replay, ensuring Sequence2D is active from the very first frame recorded. <br> 
 **Restarting Target Calibration** is then simply a matter of loading the exact same replay (including any appended captures you may have recorded), load the Target Views (which may optimise for a short bit to re-establish outliers), load the latest saved assembly stage, and then press *Auto-Assembly*, which should continue where it left off.
+
+## Editing Calibrations
+To edit an existing calibration, you need to first collect samples by tracking it in the "Tracking" phase.
+Then, in the "Optimisation Database" section, select the entry for the tracker and click "Edit Target".
+This will adopt the target as a target assembly stage in the "Target Calibration" phase. <br>
+While the data used in the target assembly is usually backed by marker observation sequences, now it is backed up by individually tracked samples.
+This excludes this data from being used in some of the algorithms of target assembly. <br>
+Tracking easily yields too many samples for optimisation routines to handle, so it is enouraged to hit the "Subsample Data" button if the sample count exceeds 50k.
+While this is not a destructive action, some tools that benefit from as many samples as possible, like view cone estimation, will not be able to take advantage of them anymore. <br>
+Note that if you plan to amend the calibration with markers you added after initial calibration, you may need to collect more target views, and start auto-assembly again to merge them into the existing calibration.

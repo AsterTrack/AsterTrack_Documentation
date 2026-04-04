@@ -2,7 +2,7 @@
 
 ## Tracker Types
 
-**Targets** are 6-DOF trackers, optionally with an IMU, and refers to a static set of markers, with no moving parts within. <br>
+**Targets** are 6-DOF trackers, optionally with an IMU, and refer to a static set of markers, with no moving parts within. <br>
 Notably, Targets may use flat markers which can not be triangulated easily - refer to [Tracking](../details/tracking_alg.md) for details.
 
 ##### Future Trackers
@@ -27,11 +27,11 @@ There, you can configure their individual behaviour and role during tracking.
 ### Trigger & Expose Conditions
 
 ##### Trigger Conditions
-When a tracker is **triggered**, it is assumed to be in the tracking volume to be tracked. For Targets, that means their [configured detection methods](#detection-config-target) is actively used. <br>
+When a tracker is **triggered**, it is assumed to be in the tracking volume to be tracked. For Targets, that means their [configured detection methods](#detection-config-target) are actively used. <br>
 Trigger Conditions include:
 
 - always assume it is trackable, e.g. when detection method is cheap
-- when triggered manually, e.g. if detection method is expensive and you want to pick which trackers are involved
+- when triggered manually, e.g. if detection method is expensive and you want to manually select this tracker every session
 - when the IMU uniquely paired to that tracker is connected, indicating presence of that tracker
 - when a client connects through one of the configured [I/O protocols](integrations.md#io-protocols) and requests tracking data from that tracker
 
@@ -39,9 +39,9 @@ Trigger Conditions include:
 When a tracker is **exposed**, it is available on configured [I/O protocols](integrations.md#io-protocols) for clients to request tracking data from. Depending on the I/O protocol, this may be actively advertising them as available, or only passively exposing them. <br>
 Expose Conditions include:
 
-- always, to e.g. allow external programs to determine the trackers to track
+- always, e.g. to allow external programs to determine the trackers to track
 - when a target is triggered, copying their trigger condition
-- when a target is first detected and tracked, potentially after they were first triggered
+- when a target is first detected and tracked, after they were first triggered
 
 ### Target Calibration (Target)
 See [Target Calibration](calib_target.md) page for instructions on how to calibrate a new target or refine the calibration of an existing one. <br>
@@ -57,10 +57,10 @@ Experimenting with adding or removing FoV may improve detection and tracking per
 See [IMU Calibration](calib_imu.md) page for instructions on how to calibrate a trackers IMU once you calibrated the trackers optical component (target or marker).
 In this section, you can associate an IMU from an external source to that tracker.
 Some sources may already be intrinsically linked, e.g. when an IMU is provided by the I/O protocol that connected to this tracker.
-In case that is the wrong IMU, ensure the external I/O protocol connects to the correct tracker instead - this may rely on the trackers name, depending on the I/O protocl. <br>
+In case that is the wrong IMU, ensure the external I/O protocol connects to the correct tracker instead - this may rely on the trackers name, depending on the I/O protocol. <br>
 The IMU displayed here may not necessarily be connected, but configured and saved prior.
 See the "Devices" panel for a list of currently connected IMUs in Device Mode. <br>
-Some IMU sources may have difficulties with time sync, and since properly aligned timestamps are critical to proper fusion, you may need to adjust the timestamp offset to compensate.
+Some IMU sources may have difficulties with time sync, and since properly aligned timestamps are critical to the tracking fusion filter, you may need to adjust the timestamp offset to compensate.
 This may eventually be possible to continuously estimate, but that is a difficult thing to just "fix in post".
 Most integrated and officially supported IMU sources will try to provide accurate timestamps.
 

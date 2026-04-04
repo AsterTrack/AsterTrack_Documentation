@@ -15,7 +15,8 @@ A similar, realtime frametime waterfall graph is being planned for the "Insights
 ## Time Sync
 Time Sync as a mechanism is used in all AsterTrack devices interacting with each other to facilitate exchange of timestamps during communications.
 Most notably, it ensures the Server Software knows exactly when the Controller generates the frame sync signal - or the timing of any external sync input. <br>
-For the USB connection to the controller specifically, it needs to be resistant to outliers due to scheduling of the host OS, and does that by estimating the true time sync via minimum-latency communications that put an upper bound on the sync delay. <br>
+For the USB connection to the controller specifically, it needs to be resistant to outliers due to scheduling of the host OS.
+It does that by estimating the true time sync via minimum-latency communications that put an upper bound on the sync delay. <br>
 Other subsystems use these tuned for their exact communication characteristics, and there is always potential for improvement.
 Feel free to use the time sync visualisation in the "Insights" panel - it includes playback of recordings from other sources (e.g. controller to camera SBC) and an emulation system allowing testing of other parameters and algorithms. <br>
 In the following graph you can see time sync over USB on a Linux host system, with accuracy of < 50us plus any fixed latencies. 
@@ -32,25 +33,29 @@ It relies on several subsystems communicating timed signals and identifying each
 The Frame ID can be arbitrary if provided by external systems and may serve to cross-link the frame with external data. <br>
 **Sync Group:** This is a grouping of cameras configured in the AsterTrack Server Software to share a frame sync signal.
 Internally, it assigns a continual, monotonously increasing frame ID to each frame that is part of that sync group.
-This is managed by the controller generating the sync or the external sync adapter and communicated with the AsterTrack server on the host system. <br>
+This is managed by the controller generating the sync or the external sync adapter and communicated to the AsterTrack Server Software on the host system. <br>
 **Camera:** The camera only knows the monotonous camera ID of the sync group it is part of, even truncated since it only needs to deal with frames temporarily within a short time window.
 It is communicated by the connected controller or the wireless sync beacon associated with that sync group. <br>
 **Frame Records:** Frame Records is the global, temporally ordered list of frames, which uses a frame number to index into it.
-That frame number is equivalent to the sync groups frame ID if only one sync group is configured.
+That frame number is equivalent to the sync groups continual frame ID if only one sync group is configured.
 Otherwise, it assigns each sync groups frame a frame number according to their temporal sorting, in an interleaving pattern.
 The exact details of this are still being implemented, multiple sync groups are not supported yet.
 Each frame record does still store the frame ID of both its sync group and sync source. <br>
 <br>
-There are multiple variations of frame sync planned, with only the most basic being implemented right now, and most only being relevant when external sync sources are used. <br>
-If the sync source is concerned wants to "trigger" the exposure on relatively short notice, relying on a low-latency communication method to transmit this signal.
-In the most basic variation, this can be used to start the exposure as soon as possible, though this depends on the exact sensor characteristics.
-As such, a future variation may premeditate the exact timestamp of the next frame sync to all cameras, using time sync to trigger all at the same time.
+There are multiple variations of frame sync planned, with only the most basic variation of the "external trigger" mode being implemented, as this works well in most cases.
+Other variations of frame sync will be implemented over time as support for external sync sources expands.
+
+#### Trigger Mode
+In this mode, a sync source may need to "trigger" the exposure on relatively short notice, relying on a low-latency communication method to transmit this signal.
+In the most basic variation, this can be used to start the exposure as soon as possible, though this depends on the exact sensor characteristics. <br>
+As such, a future variation may premeditate the exact timestamp of the next frame sync to all cameras, relying on time sync to trigger all at the same time independant of the sensor used.
 Notably, that requires a longer advance notice. <br>
-On the camera side, this variation is often implemented as a mode that puts the sensor to sleep in between triggered frames, as there is no guarantee when the next frame is getting triggered.
-On the OV9281, for example, this limits the maximum framerate to 120Hz, and is called "external trigger mode". <br>
-If the sync source can be guaranteed to continual, generating frame syncs at a known, constant framerate, a lot more assumptions can be made on the camera side, giving it more control over the actual frame sync.
-In this case, the controller relies on time sync to communicate frame sync times to the cameras, and the cameras will use that information to adapt their own frame sync.
-This depends on the exact implementation on the camera sensors, for example, the OV9281 requires the sync signal to be within 5us of the expected time.
-This requires the cameras MCU to take a lot more initiative to slowly adapt the frame sync to the source signal, and be more involved even in adapting the frame rate the sensor is configured with, as clocks are not shared between cameras and may drift differently.
-The advantage is that in this mode, the camera does not go to sleep, allowing for higher framerates - e.g. 144Hz on the OV9281. <br>
-Currently, only the basic variation of the "external trigger" mode is implemented, as this works well in most cases, but other variations of frame sync will be implemented over time.
+On the camera side, this mode in both of its variation is often implemented as a mode that puts the sensor to sleep in between triggered frames, as there is no guarantee when the next frame is getting triggered.
+On the OV9281, for example, this limits the maximum framerate to 120Hz, and is called "external trigger mode".
+
+#### Constant Mode
+In this mode, a sync source may generate continual frame syncs at a known, constant framerate, allowing the cameras to take more agency in generating the frame sync itself. <br>
+In that case, the controller relies on time sync to communicate frame sync times to the cameras, and the cameras will use that information to adapt their own frame sync, depending on the exact sensor characteristics. <br>
+For example, in continuous streaming mode, the OV9281 requires the sync signal to be within 5us of the expected frame time.
+This requires the cameras MCU to take a lot more initiative to slowly adapt the frame sync to the source signal, and be more involved even in adapting the frame rate the sensor is configured with, as clocks are not shared between cameras and may drift differently. <br>
+The advantage is that in this mode, the sensor does not go to sleep, allowing for higher framerates - e.g. 144Hz on the OV9281.

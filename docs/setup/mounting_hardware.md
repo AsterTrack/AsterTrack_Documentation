@@ -44,7 +44,7 @@ When combined with a 3D-printed 1/4" compatible adhesive mounting plate, this se
 Unfortunately, it is quite cumbersome to use in practice as the mounting screw, by relying on metal-on-metal friction with the ball joint itself, is effectively a binary lock.
 That means, you have to constrain the full range of motion while securing the screw, which is challenging to do while mounting.
 Anecdotally, it is also easy to overtighten the screw and damage the threads of the CNC shell. <br>
-Based on these findings, we recommend against using this specific mounting mechanism design.
+Based on these findings, we recommend against using this specific mounting mechanism.
 
 #### Ball Joint Mount with Fixing Ring (recommended)
 This design of securing the ball joint has many advantages, as it applies force on the ball joint through separate plastic grips.
@@ -59,7 +59,7 @@ As such, it is the recommended and default mounting mechanism, and can be bought
 There are several ways to secure mounting hardware.
 The requirements for this are rather lax, as the cameras are lightweight and have no moving parts except for the filter switcher, so vibrations from the camera itself are not a concern.
 However, the mount should be sufficiently stiff, especially in areas that experience earthquakes, to reduce the chances of a faint earthquake disturbing an existing calibration. <br>
-Generally, the structural and temperature stability of the surfaces, e.g. walls of a building, are important as well, but often out of control of the user.
+Generally, the structural and temperature stability of the mounting surfaces, e.g. walls of a building, are important as well, but often out of control of the user.
 
 ##### Metal Trusses
 Used in professional setups for optimal rigidity and independence from outside influences, these do not rely on attachment to the room directly, but provide their own mounting framework.
@@ -69,10 +69,10 @@ While technically the most secure for attaching directly to a wall or ceiling, i
 Unfortunately there is currently no recommended mounting hardware that supports screws, so you might have to get creative with the provided options.
 
 ##### Magnetic
-Some mounting hardware have magnetic bases buit-in, and may be used in some scenarios, though their mounting security is generally inferior, especially rotationally.
+Some mounting hardware has magnetic bases buit-in, and may be used in some scenarios, though their mounting security is generally inferior, especially rotationally.
 Do make sure the surface you intend to use is actually magnetic and not made of e.g. aluminium.
 
 ##### Adhesive (Recommended)
 The most approachable and thus recommended method to secure your mounting hardware is using adhesives. <br>
-While technically destructive and potentially problematic for rented rooms, the resulting surface damage can often be easily patched. <br>
-Do make sure the surface of the room provides sufficient stability, otherwise you might have to remove to top layer pro-actively to get to a stable surface.
+While technically destructive and potentially problematic in rentals, any resulting surface damage can often be much more easily patched than e.g. screw holes. <br>
+Do make sure the surface of the room provides sufficient stability, otherwise you might have to remove the top layer pro-actively to get to a stable surface.
