@@ -27,9 +27,5 @@ The only way to address this involves finding another camera sensor with similar
 ## Server Software
 
 #### Camera Calibration Reconstruction may fail
-The reconstruction may currently fail for non-obvious reasons, requiring you to re-aquire the calibration samples.
-Whether this is a regression or caused by using many cameras is currently being investigated. <br>
-Apart from that, there are also known unsupported configurations, like reconstructing cameras spread across multiple rooms.
-This is just a matter of implementing the full set of recovery strategies and applying them recursively.
-Currently, only one camera is selected as the center, and all cameras have to have some overlap with it.
-Contact me (Seneral) if multi-room support is required and I will reprioritise it.
+The reconstruction needs further work to reliably support larger setups that have disjointed views.
+While this is being worked on, please contact me (Seneral) if you encounter such situations, both to see if it can't be reconstructed normally, and if not, to reprioritise this multi-room support.
